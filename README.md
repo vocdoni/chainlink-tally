@@ -20,3 +20,9 @@ go build ./cmd/main.go
 ```
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](code-of-conduct.md) [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+
+## Deployments
+
+- Goerli: `0x7b74D3fd5201eefd6479970550C62D4bBA159b87`
+  - Endpoints:
+    - `dev` : `https://api-dev.vocdoni.net/v2/elections/`
