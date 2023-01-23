@@ -40,9 +40,15 @@ generate-go-bindings:
 	@mkdir -p ./artifacts/contracts/Results.sol/go-bindings || (echo "Error: Creating go-bindings dir" >> $(OUTPUT_FILE) && exit 1)
 	@abigen --abi ./artifacts/contracts/Results.sol/Results.abi --pkg contractResults --out ../../relayer/evmclient/contracts/results.go || (echo "Error: Generating Go bindings failed" >> $(OUTPUT_FILE) && exit 1)
 
+# Target: generate-uml
+# Description: Generate UML of the contracts using sol2uml and store them in the ../../assets folder
+generate-uml:
+	@echo "Generating UML..."
+	@node ./node_modules/sol2uml/lib/sol2uml.js class ./contracts/Results.sol -o ../../assets/ || (echo "Error: Generating UML failed" >> $(OUTPUT_FILE) && exit 1)
+
 # Target: all
 # Description: Run all the targets.
-all: clean install compile test copy-abi generate-go-bindings
+all: clean install compile test copy-abi generate-go-bindings generate-uml
 # Target: bindings
 # Description: Run the copy-abi and generate-go-bindings targets to generate golang bindings.
 bindings: copy-abi generate-go-bindings
